@@ -22,17 +22,20 @@ paths:
           description: OK
           content:
             application/json:
-              schema:
-                type: array
-                items:
+              schema:                
                   allOf:
                     - $ref: "../lib/responses/types/response.yaml"
-                    - $ref: "../lib/models/user_tasks_model.yaml"
                     - properties:
-                        user_task_provider_id:
-                          $ref: "../lib/types/user_task_provider_id.yaml"
-                      required:
-                        - user_task_provider_id
+                        items:
+                          type: array
+                          items:
+                            allOf:
+                              - $ref: "../lib/models/user_tasks_model.yaml"
+                              - properties:
+                                  user_task_provider_id:
+                                    $ref: "../lib/types/user_task_provider_id.yaml"
+                                required:
+                                  - user_task_provider_id
         401:
           description: User is not authenticated
         403:
@@ -43,7 +46,7 @@ paths:
       - $ref: "../lib/parameters/user_task_id_parameter.yaml"
     get:
       tags:
-        - user-task
+        - user-tasks
       summary: Gets a claimed user task.
       operationId: GetMyUserTask
       responses:
@@ -63,6 +66,6 @@ paths:
         401:
           description: User is not authenticated
         403:
-          description: User is not authorized fot this user task
+          description: User is not authorized for this user task
         404:
           description: User task not found

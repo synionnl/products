@@ -1,10 +1,17 @@
 # User task server
 
-The user task server acts as an aggregator. It asks, on behalve of a user, every [user task provider] to return a maximum of n tasks. 
-The [user task provider] returns tasks which are claimed by the user or unclaimed task which can be claimed by the user (is authorized to claim).
-All the responses are aggregated into one collection containing a maximum of n tasks ordered by a [order algorithm].
+## Product
 
-The user task server is a stateless service and it depends on decentralized state provided by the [user task provider]s. Alle logic related to user task urgency, user task authorization and user task handling is implemented by the [user task provider].
+The user task server acts as an [aggregator]. It asks, on behalve of a user, every [user task provider] to return a maximum of n tasks. 
+The [user task provider] returns tasks which are claimed by the user or unclaimed task which can be claimed by the user (is authorized to claim).
+All the responses are aggregated into one collection containing a maximum of n tasks ordered by an [order algorithm].
+
+The user task server is a stateless [aggregator] and it depends on decentralized state provided by the [user task provider]s. Alle logic related to user task priority, authorization and handling is implemented by the [user task provider].
+
+* [API](product.openapi.yaml)
+* [Acceptance criteria](product.feature)
+
+## Context
 
 ```plantuml
 @startuml
@@ -38,10 +45,6 @@ The user tasks are ordered by urgency. The urgency is based on the following cri
 * What is the user task due date?
 * What is the priority of the user task?
 
-## Command & queries
-
-[commands and queries](openapi.yaml)
-
-[service registry pattern]: https://www.nginx.com/blog/service-discovery-in-a-microservices-architecture/
+[aggregator]: https://www.enterpriseintegrationpatterns.com/Aggregator.html
+[service registry pattern]: https://microservices.io/patterns/service-registry.html
 [user task provider]: ../user-task-provider/index.md
-[order algorithm]: #order-algortithm
