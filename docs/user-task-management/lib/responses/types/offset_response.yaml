@@ -1,0 +1,38 @@
+allOf:
+  - $ref: "response.yaml"
+  - title: offset_response
+    properties:
+      links:
+        title: links
+        type: object
+        properties:
+          self: 
+            type: string
+            format: uri
+            description: Link to the current offset.
+            example: https://service.domain.com/api/action?offset=f64910e7-1006-4c0c-b1fa-10033855770f&limit=1000
+          first: 
+            type: string
+            format: uri
+            description: Link to the first offset.
+            example: https://service.domain.com/api/action?offset=f64910e7-1006-4c0c-b1fa-10033855770f&limit=1000
+          prev: 
+            type: string
+            format: uri
+            description: Link to the previous offset.
+            example: https://service.domain.com/api/action?offset=f64910e7-1006-4c0c-b1fa-10033855770f&limit=1000
+          next: 
+            type: string
+            format: uri
+            description: Link to the next offset.
+            example: https://service.domain.com/api/action?offset=f64910e7-1006-4c0c-b1fa-10033855770f&limit=1000
+          last: 
+            type: string
+            format: uri
+            description: Link to the last offset.
+            example: https://service.domain.com/api/action?offset=f64910e7-1006-4c0c-b1fa-10033855770f&limit=1000
+        required:
+          - next
+    required:
+      - links
+        

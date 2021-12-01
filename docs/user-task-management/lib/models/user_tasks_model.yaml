@@ -1,0 +1,30 @@
+title: user_tasks_model
+type: object
+properties:
+  user_task_id:
+    $ref: "../types/user_task_id.yaml"
+  name:
+    $ref: "../types/user_task_name.yaml"
+  description:
+    $ref: "../types/user_task_description.yaml"
+  icon:
+    $ref: "../types/user_task_icon.yaml"
+  priority:
+    $ref: "../types/user_task_priority.yaml"  
+  badge:
+    $ref: "../types/badge.yaml"
+  due_date:
+    $ref: "../types/user_task_due_date.yaml"
+  delayed_until:
+    $ref: "../types/user_task_delayed_until.yaml"
+  claimed_on:
+    $ref: "../types/user_task_claimed_on.yaml"
+  links:
+    $ref: "../types/user_task_links.yaml"
+  ext:
+    $ref: "../types/ext.yaml"
+required:
+  - user_task_id
+  - name
+  - due_date
+  - links

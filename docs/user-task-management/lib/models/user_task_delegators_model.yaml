@@ -1,0 +1,12 @@
+title: user_task_delegators_model
+type: object
+properties:
+  id:
+    $ref: "../types/user_id.yaml"
+  name:
+    $ref: "../types/user_name.yaml"
+  ext:
+    $ref: "../types/ext.yaml"
+required:
+  - id
+  - name

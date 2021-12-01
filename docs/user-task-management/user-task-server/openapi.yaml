@@ -1,0 +1,68 @@
+openapi: 3.0.3
+
+info:
+  version: 0.0.1
+  title: User task server
+  description: |
+servers:
+  - url: http://localhost:9000/
+
+paths:
+
+  /api/my-user-tasks:
+    get:
+      tags:
+        - user-tasks
+      summary: Gets a list of claimed or claimable user tasks.
+      operationId: GetMyUserTasks
+      parameters:
+        - $ref: "../lib/parameters/limit_parameter.yaml"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  allOf:
+                    - $ref: "../lib/responses/types/response.yaml"
+                    - $ref: "../lib/models/user_tasks_model.yaml"
+                    - properties:
+                        user_task_provider_id:
+                          $ref: "../lib/types/user_task_provider_id.yaml"
+                      required:
+                        - user_task_provider_id
+        401:
+          description: User is not authenticated
+        403:
+          description: User is not authorized
+
+  /api/my-user-tasks/{user_task_id}:
+    parameters:
+      - $ref: "../lib/parameters/user_task_id_parameter.yaml"
+    get:
+      tags:
+        - user-task
+      summary: Gets a claimed user task.
+      operationId: GetMyUserTask
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "../lib/responses/types/response.yaml"
+                  - $ref: "../lib/models/user_task_model.yaml"
+                  - properties:
+                      user_task_provider_id:
+                        $ref: "../lib/types/user_task_provider_id.yaml"
+                    required:
+                      - user_task_provider_id
+        401:
+          description: User is not authenticated
+        403:
+          description: User is not authorized fot this user task
+        404:
+          description: User task not found
