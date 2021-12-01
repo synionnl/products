@@ -36,19 +36,19 @@ scenarios:
       name: name_of_test_scenario 
       state: state_object    
       gateway: id_of_gateway
-      flow: id_of_flow
+      expected_flow: id_of_flow
   - parallel_gateway:
       name: name_of_test_scenario 
       state: state_object    
       gateway: id_of_gateway
-      flows:
+      expected_flows:
         - id_of_flow
         - id_of_flow
   - dmn:
       name: name_of_test_scenario 
       state: state_object    
       dmn: id_of_decision_model
-      result: result_object
+      expected_result: result_object
 ```
 
 Ze voor een voorbeeld implementatie de volgende bestanden:
@@ -64,19 +64,21 @@ Ze voor een voorbeeld implementatie de volgende bestanden:
 
 ## Class diagram
 
-```plantuml
-@startuml class diagram
+```plantuml [g1:Feature]
+@startuml feature
 
 class BPMN {
   string defintion
 }
 
 class BPMNFeature {
+  string id
   string name
   Scenario[] scenarios
 }
 
 interface Scenario {
+  string id
   string name
 }
 
@@ -98,6 +100,21 @@ class DMNScenario {
   object expectedResult
 }
 
+BPMN <-- BPMNFeature : references
+BPMNFeature "1" *-- "many" Scenario : contains
+
+Scenario <|.. ExclusiveGatewayScenario
+Scenario <|.. ParallelGatewayScenario
+Scenario <|.. DMNScenario
+
+@enduml
+```
+
+```plantuml [g1:Test]
+@startuml test
+
+interface BPMNFeature
+
 class BPMNTestFactory
 {
   BPMNTest Create(BPMNFeature feature)
@@ -110,7 +127,7 @@ class BPMNTest
 
 interface TestResult
 {
-  string description  
+  string message  
 }
 
 interface TestScenario {
@@ -121,15 +138,7 @@ interface ExpressionParser {
     object Parse(object state, string expression)
 }
 
-
-BPMN <-- BPMNFeature : references
-BPMNFeature "1" *-- "many" Scenario : contains
-
-Scenario <|.. ExclusiveGatewayScenario
-Scenario <|.. ParallelGatewayScenario
-Scenario <|.. DMNScenario
-
-BPMNFeature -> BPMNTestFactory : based on
+BPMNFeature <-- BPMNTestFactory : based on
 BPMNTestFactory --> BPMNTest : create
 BPMNTest "1" *- "many" TestResult : "                             "
 TestResult <|.. PassTestResult
