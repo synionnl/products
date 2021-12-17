@@ -1,6 +1,6 @@
-Functionaliteit: SMTP
+Feature: SMTP
 
   Scenario: Can send an email
     Given an email
     When the email is send
-    Dan the email is recvieved
+    Then the email is recvieved
