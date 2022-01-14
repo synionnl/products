@@ -16,6 +16,7 @@ This script copies every file and directory from the **docs** directory into the
 1. Every `*.dashboard.yaml` anchor is automaticly converted into a BDD dashboard;
 1. Every `*.user-task.yaml` anchor is automaticly converted into a user-interface;
 1. Every `*.puml` anchor is automaticly [converted](https://plantuml.com/) into an svg image file;
+1. Every `*.java`, `*.cs`, `*.ts`, `*.js`, `*.json`, `*.py`, `*.yml`, `*.yml` anchor is automaticly converted in a code block; 
 1. Every markdown anchor is automaticly converted into an html link;
 1. Every markdown anchor which starts with an `_` is automaticly added to the markdown file; 
 1. Every git branch is added to the git menu;
@@ -108,6 +109,7 @@ interface AnchorParser {
 }
 class AsyncapiAnchorParser
 class BPMNAnchorParser
+class CodeAnchorParser
 class DashboardAnchorParser
 class FeatureAnchorParser
 class MarkdownAnchorParser
@@ -133,6 +135,7 @@ HtmlParser <|.. UnsortedListHtmlParser
 AnchorHtmlParser *-- "has many" AnchorParser
 AnchorParser <|.. AsyncapiAnchorParser
 AnchorParser <|.. BPMNAnchorParser
+AnchorParser <|.. CodeAnchorParser
 AnchorParser <|.. DashboardAnchorParser
 AnchorParser <|.. FeatureAnchorParser
 AnchorParser <|.. MarkdownAnchorParser

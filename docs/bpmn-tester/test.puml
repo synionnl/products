@@ -1,0 +1,47 @@
+@startuml test
+
+interface BPMNFeature
+
+class BPMNTestFactory
+{
+  BPMNTest Create(BPMNFeature feature)
+}
+
+class BPMNTest
+{
+  TestResult[] Execute()
+}
+
+interface TestResult
+{
+  string message  
+}
+
+interface TestScenario {
+  TestResult Execute()
+}
+
+interface ExpressionParser {
+    object Parse(object state, string expression)
+}
+
+BPMNFeature <-- BPMNTestFactory : based on
+BPMNTestFactory --> BPMNTest : create
+BPMNTest "1" *- "many" TestResult : "                             "
+TestResult <|.. PassTestResult
+TestResult <|.. FailTestResult
+
+BPMNTest o-- "many" TestScenario : composite
+
+TestScenario <|.. ExclusiveGatewayTest
+TestScenario <|.. ParallelGatewayTest
+TestScenario <|.. DMNTest
+
+ExclusiveGatewayTest --> ExpressionParser : uses
+ParallelGatewayTest --> ExpressionParser : uses
+DMNTest --> ExpressionParser : uses
+
+ExpressionParser <|.. FeelScalaExpressionParser
+ExpressionParser <|.. SpringExpressionParser
+
+@enduml

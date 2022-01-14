@@ -1,0 +1,43 @@
+@startuml feature
+
+class BPMN {
+  string defintion
+}
+
+class BPMNFeature {
+  string id
+  string name
+  Scenario[] scenarios
+}
+
+interface Scenario {
+  string id
+  string name
+}
+
+class ExclusiveGatewayScenario {
+  object state
+  string gateway
+  string expectedFlow
+}
+
+class ParallelGatewayScenario {
+  object state
+  string gateway
+  string[] expectedFlows
+}
+
+class DMNScenario {  
+  object state
+  string dmn
+  object expectedResult
+}
+
+BPMN <-- BPMNFeature : references
+BPMNFeature "1" *-- "many" Scenario : contains
+
+Scenario <|.. ExclusiveGatewayScenario
+Scenario <|.. ParallelGatewayScenario
+Scenario <|.. DMNScenario
+
+@enduml
