@@ -47,7 +47,7 @@ There are several plugin strategies:
 1. change component render functions;
 
 ```js
-module.exports = MyApp extend App {
+module.exports = MyApp extends App {
     constructor(options) {
         super(options);
     }
