@@ -58,19 +58,19 @@ module.exports = MyApp extends App {
 
         //Option 1
         services['newFileParser'] = asClass(NewFileParser).singleton();
-        services.fileParsers = services.fileParsers.push('newFileParser');
+        services.fileParsers.push('newFileParser');
 
         //Option 2
         services['newHtmlParser'] = asClass(NewHtmlParser).singleton();
-        services.htmlParsers = services.htmlParsers.push('newHtmlParser');
+        services.htmlParsers.push('newHtmlParser');
 
 
         //Option 3
         services['newAnchorParser'] = asClass(NewAnchorParser).singleton();
-        services.anchorParsers = services.anchorParsers.push('newAnchorParser');
+        services.anchorParsers.push('newAnchorParser');
         
         //Option 4
-        services.pageComponent = asClass(MyPageComponent);
+        services.pageComponent = asClass(MyPageComponent).singleton();
 
         //Option 5
         services.pageComponentRenderFn = asValue((data) => '<html />');
