@@ -86,11 +86,15 @@ module.exports = MyApp extends App {
 
 class MarkdownRenderer
 
-interface FileParser
+interface FileParser {
+    async parse(file: string) : void
+}
 class CompositeFileParser
 Class MarkdownFileParser
 
-interface HtmlParser
+interface HtmlParser {
+    async parse(element: Element) : void
+}
 class AnchorHtmlParser
 class CleanUpHtmlParser
 class FullscreenHtmlParser
@@ -98,7 +102,10 @@ class HeadingHtmlParser
 class ImageHtmlParser
 class UnsortedListHtmlParser
 
-interface AnchorParser
+interface AnchorParser {
+    canParse(anchor: HTMLAnchorElement) : bool
+    async parse(file: string, anchor: HTMLAnchorElement) : string;
+}
 class AsyncapiAnchorParser
 class BPMNAnchorParser
 class DashboardAnchorParser
@@ -110,6 +117,7 @@ class UserTaskAnchorParser
 
 CompositeFileParser *-- "has many" FileParser
 FileParser <|.. MarkdownFileParser
+CompositeFileParser ..|> FileParser
 
 MarkdownFileParser --> "uses" MarkdownRenderer
 
