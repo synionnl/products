@@ -1,0 +1,7 @@
+title: response
+type: object
+properties:
+  messages:
+    type: array
+    items:
+      $ref: "message.yaml"

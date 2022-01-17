@@ -1,0 +1,31 @@
+type: object
+properties:
+  href:
+    type: string
+    format: uri
+    description: Webpage where the user can handle the user task
+    example: https://task-client.com//my-tasks/dcb47fd6-5695-4c98-8f13-11c516fd0b8d
+  claim:
+    type: string
+    format: uri
+    description: Rest uri to claim the user task on behalve of the user.
+    example: https://task-client.com/api/my-tasks/dcb47fd6-5695-4c98-8f13-11c516fd0b8d/claim
+  delay:
+    type: string
+    format: uri
+    description: Rest uri to delay the user task on behalve of the user.
+    example: https://task-client.com/api/my-tasks/dcb47fd6-5695-4c98-8f13-11c516fd0b8d/delay
+  delegate:
+    type: string
+    format: uri
+    description: Rest uri to delegate the user task on behalve of the user.
+    example: https://task-client.com/api/my-tasks/dcb47fd6-5695-4c98-8f13-11c516fd0b8d/delegate
+  delegators:
+    type: string
+    format: uri        
+    description: Rest uri from where to retieve a list of users to who are authorized for delegation.
+    example: https://task-client.com/api/my-tasks/dcb47fd6-5695-4c98-8f13-11c516fd0b8d/delegators
+required:
+  - href
+  - claim
+  - delay

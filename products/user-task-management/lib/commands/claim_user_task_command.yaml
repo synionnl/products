@@ -1,0 +1,3 @@
+allOf:
+  - $ref: "types/command.yaml"
+  - title: claim_user_task_command

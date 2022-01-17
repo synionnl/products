@@ -1,0 +1,165 @@
+openapi: 3.0.3
+
+info:
+  version: 0.0.1
+  title: User task client
+  description: |
+servers:
+  - url: http://localhost:9001/
+
+paths:
+
+  /api/my-user-tasks:
+    get:
+      tags:
+        - user-tasks
+      summary: Gets a list of claimed or claimable user tasks.
+      operationId: GetMyUserTasks
+      parameters:
+        - $ref: "../lib/parameters/limit_parameter.yaml"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "../lib/responses/types/response.yaml"
+                  - properties:
+                      items:
+                        type: array
+                        items:                    
+                          $ref: "../lib/models/user_tasks_model.yaml"
+
+        401:
+          description: User is not authenticated
+        403:
+          description: User is not authorized
+
+  /api/my-user-tasks/{user_task_id}:
+    parameters:
+      - $ref: "../lib/parameters/user_task_id_parameter.yaml"
+    get:
+      tags:
+        - user-task
+      summary: Gets a claimed user task.
+      operationId: GetMyUserTask
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                  allOf:
+                    - $ref: "../lib/responses/types/response.yaml"
+                    - $ref: "../lib/models/user_task_model.yaml"
+        401:
+          description: User is not authenticated
+        403:
+          description: User is not authorized for this user task
+        404:
+          description: User task not found
+
+  /api/my-user-tasks/{user_task_id}/claim:
+    parameters:
+      - $ref: "../lib/parameters/user_task_id_parameter.yaml"
+    put:
+      tags:
+        - user-task
+      summary: Claims an unclaimed user task.
+      operationId: ClaimUserTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../lib/commands/claim_user_task_command.yaml"
+      responses:
+        202:
+          $ref: "../lib/responses/types/202.yaml"
+        401:
+          $ref: "../lib/responses/types/401.yaml"
+        403:
+          $ref: "../lib/responses/types/403.yaml"
+        404:
+          $ref: "../lib/responses/types/404.yaml"
+
+  /api/my-user-tasks/{user_task_id}/delay:
+    parameters:
+      - $ref: "../lib/parameters/user_task_id_parameter.yaml"
+    put:
+      tags:
+        - user-task
+      summary: Delays a claimed user task.
+      operationId: DelayUserTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../lib/commands/delay_user_task_command.yaml"
+      responses:
+        202:
+          $ref: "../lib/responses/types/202.yaml"
+        401:
+          $ref: "../lib/responses/types/401.yaml"
+        403:
+          $ref: "../lib/responses/types/403.yaml"
+        404:
+          $ref: "../lib/responses/types/404.yaml"
+
+  /api/my-user-tasks/{user_task_id}/delegate:
+    parameters:
+      - $ref: "../lib/parameters/user_task_id_parameter.yaml"
+    put:
+      tags:
+        - user-task
+      summary: Delegates a claimed user task.
+      operationId: DelegateUserTask
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "../lib/commands/delegate_user_task_command.yaml"
+      responses:
+        202:
+          $ref: "../lib/responses/types/202.yaml"
+        401:
+          $ref: "../lib/responses/types/401.yaml"
+        403:
+          $ref: "../lib/responses/types/403.yaml"
+        404:
+          $ref: "../lib/responses/types/404.yaml"
+
+  /api/my-user-tasks/{user_task_id}/delegators:
+    parameters:
+      - $ref: "../lib/parameters/user_task_id_parameter.yaml"
+    get:
+      tags:
+        - user-task-delegators
+      summary: Gets a list of users who are authorized for this user task delegation.
+      operationId: GetUserTaskDelegators
+      parameters:
+        - $ref: "../lib/parameters/limit_parameter.yaml"
+        - $ref: "../lib/parameters/user_id_offset_parameter.yaml"
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                  allOf:
+                    - $ref: "../lib/responses/types/offset_response.yaml"
+                    - properties:
+                          delegators:
+                            type: array
+                            items:
+                              $ref: "../lib/models/user_task_delegators_model.yaml"
+        401:
+          $ref: "../lib/responses/types/401.yaml"
+        403:
+          $ref: "../lib/responses/types/403.yaml"
+        404:
+          $ref: "../lib/responses/types/404.yaml"
+

@@ -1,0 +1,5 @@
+description: Not authenticed
+content:
+  application/problem+json:
+    schema:
+      $ref: "problem.yaml"
