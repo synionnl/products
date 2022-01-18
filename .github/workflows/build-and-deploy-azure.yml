@@ -22,7 +22,7 @@ jobs:
         uses: synionnl/md-docs-actions/azure@main
         with:
           azure_credentials: ${{ secrets.AZURE_CREDENTIALS }}
-          resource-group: synion
+          resource_group: synion
           storage_account: synionstorage
           storage_container: docs-synion-nl
           storage_bucket: products
