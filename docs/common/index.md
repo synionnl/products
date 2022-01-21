@@ -1,5 +1,7 @@
 # Common
 
+[dashboard](product.dashboard.yml)
+
 ## Products
 
-* [Common email](email/index.md)
+* [Common email](email/index.md)fir
