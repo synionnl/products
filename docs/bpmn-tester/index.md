@@ -30,8 +30,7 @@ Logica in een proces moet via een yaml test specificatie automatisch getest word
 
 Het formaat beschrijft naam van de test, de proces data, het id van de gateway of decision model dat uitgevoerd moet worden en het verwachte resultaat (geactiveerde route of resultaat).
 
-* [json](voorbeeld.json)
-* [yaml](voorbeeld.yaml)
+* [yaml](voorbeeld.code.yml)
 * [feature](voorbeeld.feature)
 * [test-execution](test-execution.json)
 
