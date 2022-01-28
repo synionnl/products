@@ -1,6 +1,6 @@
 {
     "Nodes": [],
-    "ExecutionTime": "2022-01-26T14:37:28.2989943Z",
+    "ExecutionTime": "2022-01-28T14:43:09.7313748Z",
     "GenerationTime": "0001-01-01T00:00:00",
     "PluginUserSpecFlowId": "669ff5dd-18ff-431a-8e2b-3d89a3d6e1ed",
     "CLIUserSpecFlowId": null,
@@ -8,27 +8,154 @@
         {
             "ContextType": "Scenario",
             "FeatureFolderPath": "Generated",
-            "FeatureTitle": "Azure adapter",
-            "ScenarioTitle": "Kan een afmeldcode verwerken",
-            "ScenarioArguments": [],
-            "Status": "OK",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "{ AnswerCorrectProbability: 95 }",
+                "Gateway_ReviewBotAnswer",
+                "Flow_ReviewBotAnswerNo"
+            ],
+            "Status": "TestError",
             "StepResults": [
                 {
-                    "Duration": "00:00:00.7383150",
-                    "Status": "OK",
-                    "Error": null,
+                    "Duration": "00:00:00.0072757",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
                     "Outputs": null
                 },
                 {
-                    "Duration": "00:00:00.2260196",
-                    "Status": "OK",
-                    "Error": null,
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
                     "Outputs": null
                 },
                 {
-                    "Duration": "00:00:00.0619064",
-                    "Status": "OK",
-                    "Error": null,
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        },
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "{ AnswerCorrectProbability: 94 }",
+                "Gateway_ReviewBotAnswer",
+                "Flow_ReviewBotAnswerYes"
+            ],
+            "Status": "TestError",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.0004279",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        },
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "{ AnswerCorrectProbability: 84 }",
+                "Gateway_UseBotAnswer",
+                "Flow_UseBotAnswerNo"
+            ],
+            "Status": "TestError",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.0003100",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        },
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "{ AnswerCorrectProbability: 85 }",
+                "Gateway_UseBotAnswer",
+                "Flow_UseBotAnswerYes"
+            ],
+            "Status": "TestError",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.0002934",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
                     "Outputs": null
                 }
             ],
