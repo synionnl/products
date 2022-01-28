@@ -1,0 +1,28 @@
+{
+  "scenarios": [
+    {
+      "type": "exclusive_gateway",
+      "name": "name_of_test_scenario",
+      "state": "state_object",
+      "gateway": "id_of_gateway",
+      "expected_flow": "id_of_flow"
+    },
+    {
+      "type": "parallel_gateway",
+      "name": "name_of_test_scenario",
+      "state": "state_object",
+      "gateway": "id_of_gateway",
+      "expected_flows": [
+        "id_of_flow",
+        "id_of_flow"
+      ]
+    },
+    {
+      "type": "dmn",
+      "name": "name_of_test_scenario",
+      "state": "state_object",
+      "dmn": "id_of_decision_model",
+      "expected_result": "result_object"
+    }
+  ]
+}

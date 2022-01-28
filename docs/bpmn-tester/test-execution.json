@@ -1,0 +1,39 @@
+{
+    "Nodes": [],
+    "ExecutionTime": "2022-01-26T14:37:28.2989943Z",
+    "GenerationTime": "0001-01-01T00:00:00",
+    "PluginUserSpecFlowId": "669ff5dd-18ff-431a-8e2b-3d89a3d6e1ed",
+    "CLIUserSpecFlowId": null,
+    "ExecutionResults": [
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Azure adapter",
+            "ScenarioTitle": "Kan een afmeldcode verwerken",
+            "ScenarioArguments": [],
+            "Status": "OK",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.7383150",
+                    "Status": "OK",
+                    "Error": null,
+                    "Outputs": null
+                },
+                {
+                    "Duration": "00:00:00.2260196",
+                    "Status": "OK",
+                    "Error": null,
+                    "Outputs": null
+                },
+                {
+                    "Duration": "00:00:00.0619064",
+                    "Status": "OK",
+                    "Error": null,
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        }
+    ],
+    "StepReports": null
+}
