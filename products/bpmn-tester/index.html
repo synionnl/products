@@ -57,6 +57,22 @@
       dmn: id_of_decision_model
       expected_result: result_object
 </code></pre><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></footer></div>
+<div data-fullscreen="data-fullscreen"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><pre><code class="language-feature">Feature: Process
+
+Scenario Outline: Gateway tests
+
+  Given process "blog/bizdevops/living-documentation/process.bpmn"
+    And process has state "&lt;state&gt;"
+   When the gateway with id "&lt;gateway&gt;" is executed
+   Then the flow with id "&lt;flow&gt;" must be activated
+
+  Examples: Scenarios
+    | state                            | gateway                 | flow                    | 
+    | { AnswerCorrectProbability: 84 } | Gateway_UseBotAnswer    | Flow_UseBotAnswerNo     | 
+    | { AnswerCorrectProbability: 85 } | Gateway_UseBotAnswer    | Flow_UseBotAnswerYes    | 
+    | { AnswerCorrectProbability: 94 } | Gateway_ReviewBotAnswer | Flow_ReviewBotAnswerYes | 
+    | { AnswerCorrectProbability: 95 } | Gateway_ReviewBotAnswer | Flow_ReviewBotAnswerNo  | 
+</code></pre><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></footer></div>
 <p>Ze voor een voorbeeld implementatie de volgende bestanden:</p>
 <ul>
 <li><a href="https://github.com/synionnl/website/blob/feature/bot/docs/blog/bizdevops/living-documentation/process.feature">https://github.com/synionnl/website/blob/feature/bot/docs/blog/bizdevops/living-documentation/process.feature</a></li>
