@@ -40,24 +40,37 @@
 <p>Het formaat beschrijft naam van de test, de proces data, het id van de gateway of decision model dat uitgevoerd moet worden en het verwachte resultaat (geactiveerde route of resultaat).</p>
 <div class="tabs-container"><div class="tabs-list-container"><div class="tabs-scroll-container"><ul><li><a href="#gewenst-resultaat-yaml" aria-expanded="true">yaml</a></li><li><a href="#gewenst-resultaat-feature" aria-expanded="false">feature</a></li><li><a href="#gewenst-resultaat-test-execution" aria-expanded="false">test-execution</a></li></ul></div></div><div class="tabs-panels-container"><div id="gewenst-resultaat-yaml"><div data-fullscreen="data-fullscreen"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><pre><code class="language-yaml">scenarios:
   - type: exclusive_gateway
-    name: name_of_test_scenario 
-    state: state_object    
-    gateway: id_of_gateway
-    expected_flow: id_of_flow
+    state: 
+      AnswerCorrectProbability: 84
+    gateway: Gateway_UseBotAnswer
+    expected_flow: Flow_UseBotAnswerNo
+  - type: exclusive_gateway
+    state: 
+      AnswerCorrectProbability: 85
+    gateway: Gateway_UseBotAnswer
+    expected_flow: Flow_UseBotAnswerYes
+  - type: exclusive_gateway
+    state: 
+      AnswerCorrectProbability: 94
+    gateway: Gateway_ReviewBotAnswer
+    expected_flow: Flow_ReviewBotAnswerYes
+  - type: exclusive_gateway
+    state: 
+      AnswerCorrectProbability: 95
+    gateway: Gateway_ReviewBotAnswer
+    expected_flow: Flow_ReviewBotAnswerNo
   - type: parallel_gateway
-    name: name_of_test_scenario 
     state: state_object    
     gateway: id_of_gateway
     expected_flows:
       - id_of_flow
       - id_of_flow
   - type: dmn
-    name: name_of_test_scenario 
     state: state_object    
     dmn: id_of_decision_model
-    expected_result: result_object</code></pre><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></footer></div></div><div id="gewenst-resultaat-feature" hidden="hidden"><details class="scenario"><summary><span class="status status-other">Gateway tests</span></summary><details class="scenario"><summary><span class="status status-other">Gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 84 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_UseBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_UseBotAnswerNo" must be activated</span></span></li></ul></details><details class="scenario"><summary><span class="status status-other">Gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 85 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_UseBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_UseBotAnswerYes" must be activated</span></span></li></ul></details><details class="scenario"><summary><span class="status status-other">Gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 94 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_ReviewBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_ReviewBotAnswerYes" must be activated</span></span></li></ul></details><details class="scenario"><summary><span class="status status-other">Gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 95 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_ReviewBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_ReviewBotAnswerNo" must be activated</span></span></li></ul></details></details></div><div id="gewenst-resultaat-test-execution" hidden="hidden"><div data-fullscreen="data-fullscreen"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><pre><code class="language-json">{
+    expected_result: result_object</code></pre><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></footer></div></div><div id="gewenst-resultaat-feature" hidden="hidden"><details class="scenario"><summary><span class="status status-other">Exclusive gateway tests</span></summary><details class="scenario"><summary><span class="status status-other">Exclusive gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 84 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_UseBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_UseBotAnswerNo" must be activated</span></span></li></ul></details><details class="scenario"><summary><span class="status status-other">Exclusive gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 85 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_UseBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_UseBotAnswerYes" must be activated</span></span></li></ul></details><details class="scenario"><summary><span class="status status-other">Exclusive gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 94 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_ReviewBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_ReviewBotAnswerYes" must be activated</span></span></li></ul></details><details class="scenario"><summary><span class="status status-other">Exclusive gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 95 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_ReviewBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_ReviewBotAnswerNo" must be activated</span></span></li></ul></details></details></div><div id="gewenst-resultaat-test-execution" hidden="hidden"><div data-fullscreen="data-fullscreen"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><pre><code class="language-json">{
     "Nodes": [],
-    "ExecutionTime": "2022-01-26T14:37:28.2989943Z",
+    "ExecutionTime": "2022-01-28T14:43:09.7313748Z",
     "GenerationTime": "0001-01-01T00:00:00",
     "PluginUserSpecFlowId": "669ff5dd-18ff-431a-8e2b-3d89a3d6e1ed",
     "CLIUserSpecFlowId": null,
@@ -65,27 +78,154 @@
         {
             "ContextType": "Scenario",
             "FeatureFolderPath": "Generated",
-            "FeatureTitle": "Azure adapter",
-            "ScenarioTitle": "Kan een afmeldcode verwerken",
-            "ScenarioArguments": [],
-            "Status": "OK",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "{ AnswerCorrectProbability: 95 }",
+                "Gateway_ReviewBotAnswer",
+                "Flow_ReviewBotAnswerNo"
+            ],
+            "Status": "TestError",
             "StepResults": [
                 {
-                    "Duration": "00:00:00.7383150",
-                    "Status": "OK",
-                    "Error": null,
+                    "Duration": "00:00:00.0072757",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
                     "Outputs": null
                 },
                 {
-                    "Duration": "00:00:00.2260196",
-                    "Status": "OK",
-                    "Error": null,
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
                     "Outputs": null
                 },
                 {
-                    "Duration": "00:00:00.0619064",
-                    "Status": "OK",
-                    "Error": null,
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        },
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "{ AnswerCorrectProbability: 94 }",
+                "Gateway_ReviewBotAnswer",
+                "Flow_ReviewBotAnswerYes"
+            ],
+            "Status": "TestError",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.0004279",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        },
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "{ AnswerCorrectProbability: 84 }",
+                "Gateway_UseBotAnswer",
+                "Flow_UseBotAnswerNo"
+            ],
+            "Status": "TestError",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.0003100",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        },
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "{ AnswerCorrectProbability: 85 }",
+                "Gateway_UseBotAnswer",
+                "Flow_UseBotAnswerYes"
+            ],
+            "Status": "TestError",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.0002934",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
                     "Outputs": null
                 }
             ],

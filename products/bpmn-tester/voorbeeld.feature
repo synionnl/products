@@ -1,6 +1,6 @@
 Feature: Process
 
-Scenario Outline: Gateway tests
+Scenario Outline: Exclusive gateway tests
 
   Given process "blog/bizdevops/living-documentation/process.bpmn"
     And process has state "<state>"

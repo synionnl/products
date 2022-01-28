@@ -1,18 +1,31 @@
 scenarios:
   - type: exclusive_gateway
-    name: name_of_test_scenario 
-    state: state_object    
-    gateway: id_of_gateway
-    expected_flow: id_of_flow
+    state: 
+      AnswerCorrectProbability: 84
+    gateway: Gateway_UseBotAnswer
+    expected_flow: Flow_UseBotAnswerNo
+  - type: exclusive_gateway
+    state: 
+      AnswerCorrectProbability: 85
+    gateway: Gateway_UseBotAnswer
+    expected_flow: Flow_UseBotAnswerYes
+  - type: exclusive_gateway
+    state: 
+      AnswerCorrectProbability: 94
+    gateway: Gateway_ReviewBotAnswer
+    expected_flow: Flow_ReviewBotAnswerYes
+  - type: exclusive_gateway
+    state: 
+      AnswerCorrectProbability: 95
+    gateway: Gateway_ReviewBotAnswer
+    expected_flow: Flow_ReviewBotAnswerNo
   - type: parallel_gateway
-    name: name_of_test_scenario 
     state: state_object    
     gateway: id_of_gateway
     expected_flows:
       - id_of_flow
       - id_of_flow
   - type: dmn
-    name: name_of_test_scenario 
     state: state_object    
     dmn: id_of_decision_model
     expected_result: result_object
