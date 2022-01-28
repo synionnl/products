@@ -2,14 +2,14 @@ Feature: Process
 
 Scenario Outline: Exclusive gateway tests
 
-  Given process "blog/bizdevops/living-documentation/process.bpmn"
+  Given process "<process>"
     And process has state "<state>"
    When the gateway with id "<gateway>" is executed
    Then the flow with id "<flow>" must be activated
 
   Examples: Scenarios
-    | state                            | gateway                 | flow                    | 
-    | { AnswerCorrectProbability: 84 } | Gateway_UseBotAnswer    | Flow_UseBotAnswerNo     | 
-    | { AnswerCorrectProbability: 85 } | Gateway_UseBotAnswer    | Flow_UseBotAnswerYes    | 
-    | { AnswerCorrectProbability: 94 } | Gateway_ReviewBotAnswer | Flow_ReviewBotAnswerYes | 
-    | { AnswerCorrectProbability: 95 } | Gateway_ReviewBotAnswer | Flow_ReviewBotAnswerNo  | 
+    | process                                           | state                            | gateway                 | flow                    | 
+    | blog/bizdevops/living-documentation/process.bpmn  | { AnswerCorrectProbability: 84 } | Gateway_UseBotAnswer    | Flow_UseBotAnswerNo     | 
+    | blog/bizdevops/living-documentation/process.bpmn  | { AnswerCorrectProbability: 85 } | Gateway_UseBotAnswer    | Flow_UseBotAnswerYes    | 
+    | blog/bizdevops/living-documentation/process.bpmn  | { AnswerCorrectProbability: 94 } | Gateway_ReviewBotAnswer | Flow_ReviewBotAnswerYes | 
+    | blog/bizdevops/living-documentation/process.bpmn  | { AnswerCorrectProbability: 95 } | Gateway_ReviewBotAnswer | Flow_ReviewBotAnswerNo  | 

@@ -11,6 +11,7 @@
             "FeatureTitle": "Process",
             "ScenarioTitle": "Exclusive gateway tests",
             "ScenarioArguments": [
+                "blog/bizdevops/living-documentation/process.bpmn",
                 "{ AnswerCorrectProbability: 95 }",
                 "Gateway_ReviewBotAnswer",
                 "Flow_ReviewBotAnswerNo"
@@ -50,6 +51,7 @@
             "FeatureTitle": "Process",
             "ScenarioTitle": "Exclusive gateway tests",
             "ScenarioArguments": [
+                "blog/bizdevops/living-documentation/process.bpmn",
                 "{ AnswerCorrectProbability: 94 }",
                 "Gateway_ReviewBotAnswer",
                 "Flow_ReviewBotAnswerYes"
@@ -89,6 +91,7 @@
             "FeatureTitle": "Process",
             "ScenarioTitle": "Exclusive gateway tests",
             "ScenarioArguments": [
+                "blog/bizdevops/living-documentation/process.bpmn",
                 "{ AnswerCorrectProbability: 84 }",
                 "Gateway_UseBotAnswer",
                 "Flow_UseBotAnswerNo"
@@ -128,6 +131,7 @@
             "FeatureTitle": "Process",
             "ScenarioTitle": "Exclusive gateway tests",
             "ScenarioArguments": [
+                "blog/bizdevops/living-documentation/process.bpmn",
                 "{ AnswerCorrectProbability: 85 }",
                 "Gateway_UseBotAnswer",
                 "Flow_UseBotAnswerYes"
