@@ -4,4 +4,5 @@
 
 ## Products
 
-* [Common email](email/index.md)fir
+* [Common CQRS](cqrs/index.md)
+* [Common email](email/index.md)

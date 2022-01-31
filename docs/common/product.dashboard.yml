@@ -1,2 +1,3 @@
 features:
+  - cqrs/command.feature
   - email/smtp.feature
