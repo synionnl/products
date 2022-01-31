@@ -36,7 +36,7 @@ Feature: CQRS commands
         When command is send
         Then command is not handled
     
-    Scenario: Can activate aspect with attribute
+    Scenario: Can activate command aspect with attribute
         Given attributed command handler is auto wired
         When command is send
         Then command is handled
