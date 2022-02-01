@@ -1,3 +1,4 @@
 features:
   - cqrs/product.features.yml
+  - ddd/product.feature
   - email/smtp.feature
