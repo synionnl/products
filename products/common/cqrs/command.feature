@@ -61,8 +61,8 @@ Feature: CQRS commands
         When command is send
         Then command is handled once
 
-    Scenario: Can send differtent command with same command id when idempotent attribute is present
+    Scenario: Can send different command with same command id when idempotent attribute is present
         Given command handler with idempotent attribute is auto wired
         When command is send 
-        When same command is send with differtent value
+        When same command is send with different value
         Then duplicate command id exception is thrown
