@@ -2,4 +2,4 @@
 
 ## Product
 
-[Acceptance criteria](product.feature)
+[Acceptance criteria](product.features.yml)
