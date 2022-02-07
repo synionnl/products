@@ -1,3 +1,4 @@
 - command.feature
 - event.feature
 - query.feature
+- idempotent.feature
