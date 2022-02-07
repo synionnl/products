@@ -8,7 +8,7 @@ Feature: CQRS queries
     Scenario: Cannot auto wire second query handler of same query type
         Given query handler is auto wired
         When second query handler is auto wired
-        Then query exception is raised
+        Then multiple query handlers exception is raised
 
     Scenario: Can use query aspect
         Given query handler is auto wired
