@@ -1,3 +1,4 @@
+@Docker
 Feature: SMTP
 
   Scenario: Can send an email

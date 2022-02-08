@@ -1,3 +1,4 @@
+@Docker
 Feature: DDD domain events
 
     Scenario: Publish domain events
