@@ -1,3 +1,4 @@
+@Docker
 Feature: DDD aggregate root store
 
     Scenario: Can get an event sourced aggregate root
@@ -11,7 +12,6 @@ Feature: DDD aggregate root store
         And events in database
         When executing get aggregate root query for event sourced aggregate root interface
         Then should have recieved event sourced aggregate root interface
-
     
     Scenario: Can save an event sourced aggregate root
         Given database
