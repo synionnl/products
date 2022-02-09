@@ -50,23 +50,20 @@ Feature: CQRS commands
         When command is send
         Then transaction scope is set
 
-    @Docker
+    @Database
     Scenario: Can send command with idempotent attribute
         Given command handler with idempotent attribute is auto wired
-        And database
         When command is send
         Then command is handled once
 
-    @Docker
+    @Database
     Scenario: Can send command twice with idempotent attribute
         Given command handler with idempotent attribute is auto wired
-        And database
         When command is send twice
         Then command is handled once
 
-    @Docker
+    @Database
     Scenario: Cannot send different command with same command id when idempotent attribute is present
         Given command handler with idempotent attribute is auto wired
-        And database
         When same command is send with different value
         Then duplicate command id exception is thrown
