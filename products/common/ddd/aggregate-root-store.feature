@@ -1,4 +1,5 @@
 @Database
+@AutoWire
 Feature: DDD aggregate root store
 
     Scenario: Can get an event sourced aggregate root
