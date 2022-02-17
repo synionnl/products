@@ -48,7 +48,12 @@ Feature: CQRS commands
     Scenario: Can add transaction scope to command handler
         Given command handler with transaction scope attribute is auto wired
         When command is send
-        Then transaction scope is set
+        Then transaction scope is set    
+    
+    Scenario: Can add logging to command handler
+        Given command handler with log attribute is auto wired
+        When command is send
+        Then command is logged
 
     @Database
     Scenario: Can send command with idempotent attribute

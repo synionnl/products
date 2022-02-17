@@ -48,5 +48,10 @@ Feature: CQRS queries
     Scenario: Default query resonse throws exception with response not default attribute attribute
         Given query handler with response not default attribute is auto wired
         When query is asked
-        Then query response is default response exception is raised
+        Then query response is default response exception is raised    
+    
+    Scenario: Can add logging to query handler
+        Given query handler with log attribute is auto wired
+        When query is asked
+        Then query is logged
         

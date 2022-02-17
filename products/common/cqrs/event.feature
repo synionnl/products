@@ -44,4 +44,9 @@ Feature: CQRS events
         Given attributed event handler is auto wired
         When event is notified
         Then notification is recieved
-        And event attribute aspect is executed
+        And event attribute aspect is executed    
+    
+    Scenario: Can add logging to event handler
+        Given event handler with log attribute is auto wired
+        When event is notified
+        Then event is logged
