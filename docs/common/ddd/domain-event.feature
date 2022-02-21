@@ -1,7 +1,7 @@
 @Database
+@DomainEvent
 Feature: DDD domain events
 
-    @Dev
     Scenario: Publish domain events
         Given events in database
         When domain event publisher application has executed

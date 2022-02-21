@@ -1,3 +1,4 @@
+@Event
 Feature: CQRS events
 
     Scenario: Can notify event

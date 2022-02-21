@@ -1,3 +1,4 @@
+@Query
 Feature: CQRS queries
 
     Scenario: Can ask query

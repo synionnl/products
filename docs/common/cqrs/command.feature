@@ -1,3 +1,4 @@
+@Command
 Feature: CQRS commands
 
     Scenario: Can send command
@@ -45,6 +46,7 @@ Feature: CQRS commands
         Then command is handled once
         And command attribute aspect is executed
     
+    @Transactional
     Scenario: Can add transaction scope to command handler
         Given command handler with transaction scope attribute is auto wired
         When command is send
@@ -56,18 +58,21 @@ Feature: CQRS commands
         Then command is logged
 
     @Database
+    @Idempotent
     Scenario: Can send command with idempotent attribute
         Given command handler with idempotent attribute is auto wired
         When command is send
         Then command is handled once
 
     @Database
+    @Idempotent
     Scenario: Can send command twice with idempotent attribute
         Given command handler with idempotent attribute is auto wired
         When command is send twice
         Then command is handled once
 
     @Database
+    @Idempotent
     Scenario: Cannot send different command with same command id when idempotent attribute is present
         Given command handler with idempotent attribute is auto wired
         When same command is send with different value
