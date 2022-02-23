@@ -1,5 +1,8 @@
 Feature: IAM
 
+    Scenario: Principal context is working in async invocations
+      Then principal context is working as expected
+
     Scenario: Can authenticate system
       When authenticating system
       Then system is authenticated
