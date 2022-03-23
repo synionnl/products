@@ -258,6 +258,10 @@ header .nav .icon {
     vertical-align: middle;
 }
 
+header .nav .icon + .label {
+    margin-left: var(--space-xs);
+}
+
 header .nav svg {
     fill: currentColor;
 }
@@ -280,6 +284,10 @@ header a[aria-expanded="true"] {
 
 .menu-toggle-branches {
     white-space: nowrap;
+}
+
+.menu-toggle-branches .label {
+    margin: 0 var(--space-xs);
 }
 
 .menu-toggle-branches::after {
@@ -423,9 +431,10 @@ main > aside h2 {
 @media (min-width: 60rem) {
     main > aside {
         grid-area: aside;
+        margin-bottom: 0;
         order: 2;
-        /* position: sticky;
-        top: calc(var(--header-height) + var(--space-lg)); */
+        position: sticky;
+        top: calc(var(--header-height) + var(--space-lg));
     }
 }
 
@@ -433,12 +442,20 @@ main > aside > div {
     padding: var(--space-md) var(--space-lg);
 }
 
-main > aside > div.header {
-    border-bottom: var(--line-base) solid var(--color-white-a90);
+main > aside > .header {
+    border-top: var(--line-base) solid var(--color-white-a90);
+    padding-bottom: 0;
+    margin-top: var(--space-md);
+}
+
+main > aside > .header:first-child {
+    border-top: none;
+    margin-top: 0;
 }
 
 main > aside h2 {
     font-size: var(--heading-5-size);
+    text-transform: uppercase;
 }
 
 main > aside a {
@@ -576,20 +593,27 @@ article > .header-container {
 }
 
 .header-container.h3 h3:after {
-    content: "▼";
-    font-size: calc(100% / var(--line-height-base));
-    color: var(--text-color-heading);
+    border-color: var(--text-color-base);
+    border-width: var(--line-base) var(--line-base) 0 0;
+    transform: rotate(135deg);
+    transform-origin: 60% 40%;
+    border-style: solid;
+    content: "";
+    display: block;
+    height: var(--space-xs);
+    width: var(--space-xs);
     position: absolute;
-    right: 0;
-    top: 0;
+    right: .25rem;
+    top: .75rem;
+    transition: transform var(--duration-base);
 }
 
 .header-container.h3.active h3:after {
-    content: "▲";
+    transform: rotate(45deg);
 }
 
 .header-container.h3.active > .container {
-    display: block !important;
+    display: block;
 }
 
 .header-container.h3 > .container {
