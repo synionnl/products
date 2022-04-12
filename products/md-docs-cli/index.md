@@ -1,12 +1,30 @@
 # md-docs cli
 
+## Architecture
+
+The application is written in node js and implements a plug in architecture. It uses [Awilix](https://github.com/jeffijoe/awilix/) under the hood for dependency resolving. Plugins can be used by extending App and adding or replacing service registrations.
+
+There are several plugin strategies:
+
+1. add or change the file parsers;
+1. add or change the html parsers;
+1. add or change the anchor parsers;
+1. change components;
+1. change component render functions;
+
+<!-- end -->
+
+* [Class diagram](class-diagram.puml)
+* [Extending](extensions.js)
+
 ## Product
 
-md-docs is a cli tool which generates a static webiste by resolving files recursivly from a source folder.
+md-docs is a cli tool which generates a static website by resolving files recursivly from a source folder.
 
 This script copies every file and directory from the **docs** directory into the **dist** directory and transforms every `*.md` file into a html file while adding the following features:
 
-1. Every index.md is transformed in a static web page;
+1. Every *.md is transformed in a static web page;
+1. Every *.message.md is transformed in a static document web page and PDF;
 1. Every index.md is added to the menu;
 1. Every heading is automaticly converted into a container;
 1. Every `*.bpmn` anchor is automaticly [converted](https://bpmn.io/toolkit/bpmn-js/) into a bpmn.io viewer;fir
@@ -15,7 +33,8 @@ This script copies every file and directory from the **docs** directory into the
 1. Every `*.feature` anchor is automaticly converted into a feature details list;
 1. Every `*.dashboard.yaml` anchor is automaticly converted into a BDD dashboard;
 1. Every `*.user-task.yaml` anchor is automaticly converted into a user-interface;
-1. Every `*.puml` anchor is automaticly [converted](https://plantuml.com/) into an svg image file;
+1. Every `*.puml` filer is automaticly [converted](https://plantuml.com/) into an svg image file;
+1. Every `*.drawio` file is automaticly into an svg image file;
 1. Every `*.java`, `*.cs`, `*.ts`, `*.js`, `*.json`, `*.py`, `*.yml`, `*.yml` anchor is automaticly converted in a code block; 
 1. Every markdown anchor is automaticly converted into an html link;
 1. Every markdown anchor which starts with an `_` is automaticly added to the markdown file; 
@@ -34,114 +53,3 @@ This script copies every file and directory from the **docs** directory into the
     * [markdown-it-attrs](https://www.npmjs.com/package/markdown-it-attrs);
 
 All links are relative so you do not need a webserver.
-
-## Architecture
-
-The application is written in node js and implements a plug in architecture. It uses [Awilix](https://github.com/jeffijoe/awilix/) under the hood for dependency resolving. Plugins can be used by extending App and adding or replacing service registrations.
-
-There are several plugin strategies:
-
-1. add or change the file parsers;
-1. add or change the html parsers;
-1. add or change the anchor parsers;
-1. change components;
-1. change component render functions;
-
-```js
-module.exports = MyApp extends App {
-    constructor(options) {
-        super(options);
-    }
-
-    _getServices(options) {
-        const services = super(options);
-
-        //Option 1
-        services['newFileParser'] = asClass(NewFileParser).singleton();
-        services.fileParsers.push('newFileParser');
-
-        //Option 2
-        services['newHtmlParser'] = asClass(NewHtmlParser).singleton();
-        services.htmlParsers.push('newHtmlParser');
-
-
-        //Option 3
-        services['newAnchorParser'] = asClass(NewAnchorParser).singleton();
-        services.anchorParsers.push('newAnchorParser');
-        
-        //Option 4
-        services.pageComponent = asClass(MyPageComponent).singleton();
-
-        //Option 5
-        services.pageComponentRenderFn = asValue((data) => '<html />');
-
-        return services;
-    }
-}
-```
-
-## Class diagram
-
-```plantuml
-@startuml
-
-class MarkdownRenderer
-
-interface FileParser {
-    async parse(file: string) : void
-}
-class CompositeFileParser
-Class MarkdownFileParser
-
-interface HtmlParser {
-    async parse(element: Element) : void
-}
-class AnchorHtmlParser
-class CleanUpHtmlParser
-class FullscreenHtmlParser
-class HeadingHtmlParser
-class ImageHtmlParser
-class UnsortedListHtmlParser
-
-interface AnchorParser {
-    canParse(anchor: HTMLAnchorElement) : bool
-    async parse(file: string, anchor: HTMLAnchorElement) : string;
-}
-class AsyncapiAnchorParser
-class BPMNAnchorParser
-class CodeAnchorParser
-class DashboardAnchorParser
-class FeatureAnchorParser
-class MarkdownAnchorParser
-class OpenapiAnchorParser
-class UmlAnchorParser
-class UserTaskAnchorParser
-
-CompositeFileParser *-- "has many" FileParser
-FileParser <|.. MarkdownFileParser
-CompositeFileParser ..|> FileParser
-
-MarkdownFileParser --> "uses" MarkdownRenderer
-
-MarkdownRenderer *-- "has many" HtmlParser
-
-HtmlParser <|.. AnchorHtmlParser
-HtmlParser <|.. CleanUpHtmlParser
-HtmlParser <|.. FullscreenHtmlParser
-HtmlParser <|.. HeadingHtmlParser
-HtmlParser <|.. ImageHtmlParser
-HtmlParser <|.. UnsortedListHtmlParser
-
-AnchorHtmlParser *-- "has many" AnchorParser
-AnchorParser <|.. AsyncapiAnchorParser
-AnchorParser <|.. BPMNAnchorParser
-AnchorParser <|.. CodeAnchorParser
-AnchorParser <|.. DashboardAnchorParser
-AnchorParser <|.. FeatureAnchorParser
-AnchorParser <|.. MarkdownAnchorParser
-AnchorParser <|.. OpenapiAnchorParser
-AnchorParser <|.. UmlAnchorParser
-AnchorParser <|.. UserTaskAnchorParser
-
-@enduml
-```
