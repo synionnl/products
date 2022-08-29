@@ -2,4 +2,4 @@
 
 ## Schema
 
-![schema](./brand.puml)
+[schema](./brand.puml)
