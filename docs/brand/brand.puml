@@ -1,0 +1,34 @@
+@startuml
+
+class BrandA
+class BrandB
+class BrandC
+
+abstract class Brand {
+    css
+    variables
+    files
+}   
+
+interface Channel
+
+class Web
+class Email
+class Letter
+
+Brand <-- Channel : uses
+
+Channel <|.. Web : implements
+Channel <|.. Email : implements
+Channel <|.. Letter : implements
+
+BrandA --|> Brand : extends
+BrandB --|> Brand : extends
+BrandC --|> Brand : extends
+
+Web <|-- CustomWebBrandA : extends
+Email <|-- CustomEmailBrandA : extends
+Letter <|-- CustomLetterA : extends
+
+
+@enduml
