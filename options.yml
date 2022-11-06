@@ -1,0 +1,4 @@
+locale: en
+git:
+  type: github
+  urlTemplate: https://github.com/{{{repository}}}/blob/{{{branch}}}
