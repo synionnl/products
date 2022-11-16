@@ -1,0 +1,290 @@
+<!DOCTYPE html><html> <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="robots" content="noindex, nofollow"><title>BPMN Tester</title><link rel="stylesheet" type="text/css" href="../assets/style/page/style.css"><link href="../assets/prismjs/prism-coy.min.css" rel="stylesheet"><link href="../assets/prismjs/prism-line-numbers.min.css" rel="stylesheet"><link rel="icon" href="../assets/images/page/favicon-32w.ico" sizes="any"><link rel="icon" href="../assets/images/page/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" type="image/png" href="../assets/images/page/favicon-180w.png"></head><body class="line-numbers"><nav class="menu"><div class="menu-logo"><a href="../index.html" title="Home"><img src="../assets/images/page/logo.svg" alt="BPMN Tester"></a></div><div class="menu-branch"><a class="menu-toggle menu-toggle-branches" href="#menu-branches" aria-controls="menu-branches" aria-expanded="false"><span class="icon"><svg class="octicon octicon-git-branch" aria-hidden="true" height="16" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true"><path fill-rule="evenodd" d="M11.75 2.5a.75.75 0 100 1.5.75.75 0 000-1.5zm-2.25.75a2.25 2.25 0 113 2.122V6A2.5 2.5 0 0110 8.5H6a1 1 0 00-1 1v1.128a2.251 2.251 0 11-1.5 0V5.372a2.25 2.25 0 111.5 0v1.836A2.492 2.492 0 016 7h4a1 1 0 001-1v-.628A2.25 2.25 0 019.5 3.25zM4.25 12a.75.75 0 100 1.5.75.75 0 000-1.5zM3.5 3.25a.75.75 0 111.5 0 .75.75 0 01-1.5 0z"/></svg></span><span class="label">main</span></a></div><div class="menu-branches" id="menu-branches" hidden="true"><ul><li><a href="../../main/" data-branch-url="../../main/">main</a></li></ul></div><div class="menu-main" id="menu-main"><ul><li class="active-child"><a href="../index.html" aria-expanded="true">Home</a></li><li class="active-sibbling"><a href="../bpmn-extensions/index.html" aria-expanded="false">Bpmn extensions</a><ul hidden="hidden"><li><a href="../bpmn-extensions/task-meta-description-plugin/index.html" aria-expanded="false">Task meta description plugin</a></li></ul></li><li class="active"><a href="../bpmn-tester/index.html" aria-expanded="true">Bpmn tester</a></li><li class="active-sibbling"><a href="../brand/index.html" aria-expanded="false">Brand</a></li><li class="active-sibbling"><a href="../common/index.html" aria-expanded="false">Common</a><ul hidden="hidden"><li><a href="../common/cqrs/index.html" aria-expanded="false">Cqrs</a></li><li><a href="../common/ddd/index.html" aria-expanded="false">Ddd</a></li><li><a href="../common/email/index.html" aria-expanded="false">Email</a></li><li><a href="../common/iam/index.html" aria-expanded="false">Iam</a></li></ul></li><li class="active-sibbling"><a href="../md-docs-cli/index.html" aria-expanded="false">Md docs cli</a></li><li class="active-sibbling"><a href="../user-task-management/index.html" aria-expanded="false">User task management</a><ul hidden="hidden"><li><a href="../user-task-management/user-task-provider/index.html" aria-expanded="false">User task provider</a></li><li><a href="../user-task-management/user-task-server/index.html" aria-expanded="false">User task server</a></li></ul></li></ul></div><div class="menu-footer"><ul><li><a class="git" href="https://github.com/synionnl/synionnl.github.io/blob/main/docs/bpmn-tester/index.md" title="View source file"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 16 16" fill="none" title="github"><path d="M15.698 7.287 8.712.302a1.03 1.03 0 0 0-1.457 0l-1.45 1.45 1.84 1.84a1.223 1.223 0 0 1 1.55 1.56l1.773 1.774a1.224 1.224 0 0 1 1.267 2.025 1.226 1.226 0 0 1-2.002-1.334L8.58 5.963v4.353a1.226 1.226 0 1 1-1.008-.036V5.887a1.226 1.226 0 0 1-.666-1.608L5.093 2.465l-4.79 4.79a1.03 1.03 0 0 0 0 1.457l6.986 6.986a1.03 1.03 0 0 0 1.457 0l6.953-6.953a1.031 1.031 0 0 0 0-1.457"></path></svg></span></a></li></ul></div></nav><main><header><h1 class="title">BPMN Tester</h1><nav class="toc-container"><ul><li><a href="#product">Product </a></li><li><a href="#achtergrond">Achtergrond </a></li><li><a href="#gewenst-resultaat">Gewenst resultaat </a></li><li><a href="#delevirables">Delevirables </a></li><li><a href="#class-diagram">Class diagram </a></li><li><a href="#pseudo-code">Pseudo code </a></li></ul></nav></header><div class="content"><div class="header-container h2">
+    <div class="header"><h2 id="product" tabindex="-1">Product <a class="header-anchor" href="#product">¶</a></h2></div>
+    <div class="container">
+<p>De business is eigenaar van alle business interfaces waaronder ook de bedrijfsprocessen. Als eigenaar moeten zij dan ook correcte processen in BPMN formaat opleveren. Processen bevatten ook logica, denk hierbij aan gateways en DMN modellen. Deze logica moet, net als alle andere logica, als unit automatisch getest kunnen worden.</p>
+</div>
+</div><div class="header-container h2">
+    <div class="header"><h2 id="achtergrond" tabindex="-1">Achtergrond <a class="header-anchor" href="#achtergrond">¶</a></h2></div>
+    <div class="container">
+<p>Logica (expressies) worden in FEEL formaat geschreven. FEEL is een DMN standaard zoals <a href="https://www.omg.org/spec/DMN/">beschreven in de DMN specificatie.</a>. Zie ook <a href="https://docs.camunda.io/docs/reference/feel/what-is-feel/">Camunda documentatie</a> voor meer informatie.</p>
+<p>Er bestaan verschillende implementaties van de expressie taal:</p>
+<ul>
+<li><a href="https://camunda.github.io/feel-scala/">Canmunda FEEL parser</a>;</li>
+<li><a href="https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html">Spring expression language (SPEL) parser</a></li>
+</ul>
+<p>De implementatie moet via dependency injectie te configureren zijn.</p>
+</div>
+</div><div class="header-container h2">
+    <div class="header"><h2 id="gewenst-resultaat" tabindex="-1">Gewenst resultaat <a class="header-anchor" href="#gewenst-resultaat">¶</a></h2></div>
+    <div class="container">
+<p>Logica in een proces moet via een yaml test specificatie automatisch getest worden.</p>
+<ul>
+<li>Een script zoek recursief naar alle *.bpmn.tests bestanden. Voor elke test bestand moet het bpmn bestand (- .tests extenstie) bestaan.</li>
+<li>Het .bpmn.tests bestand wordt gevalideerd op juistheid (parsen naar POJO bestanden);</li>
+<li>Het .bpmn bestand wordt gevalideerd op juistheid (<a href="https://github.com/bpmn-io/bpmn-js-bpmnlint">https://github.com/bpmn-io/bpmn-js-bpmnlint</a>);</li>
+<li>Voor elke test word de logica opgezocht in de process definitie:</li>
+<li>
+<ul>
+<div data-fullscreen="false"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><li>de expressies van alle uitgaande gateway flows aan de hand van <code>when_executing_gateway</code>;</li><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button><div class="figure-zoom"><button type="button" title="Zoom reset" data-figure-zoom="reset"><span class="label">↺</span></button><button type="button" title="Zoom in" data-figure-zoom="in"><span class="label">+</span></button><button type="button" title="Zoom uit" data-figure-zoom="out"><span class="label">−</span></button></div></footer></div>
+<div data-fullscreen="false"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><li>de DMN expressie op basis van <code>when_executing_decision</code>;</li><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button><div class="figure-zoom"><button type="button" title="Zoom reset" data-figure-zoom="reset"><span class="label">↺</span></button><button type="button" title="Zoom in" data-figure-zoom="in"><span class="label">+</span></button><button type="button" title="Zoom uit" data-figure-zoom="out"><span class="label">−</span></button></div></footer></div>
+</ul>
+</li>
+<div data-fullscreen="false"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><li>Elke expressie en <code>given_state</code> wordt m.b.v. van de expression parser implementatie uitgevoerd;</li><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button><div class="figure-zoom"><button type="button" title="Zoom reset" data-figure-zoom="reset"><span class="label">↺</span></button><button type="button" title="Zoom in" data-figure-zoom="in"><span class="label">+</span></button><button type="button" title="Zoom uit" data-figure-zoom="out"><span class="label">−</span></button></div></footer></div>
+<div data-fullscreen="false"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><li>Het uitkomst wordt vergeleken met het verwachte resultaat: <code>expect_flow_activated</code> of <code>expect_result</code></li><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button><div class="figure-zoom"><button type="button" title="Zoom reset" data-figure-zoom="reset"><span class="label">↺</span></button><button type="button" title="Zoom in" data-figure-zoom="in"><span class="label">+</span></button><button type="button" title="Zoom uit" data-figure-zoom="out"><span class="label">−</span></button></div></footer></div>
+</ul>
+<p>Het formaat beschrijft naam van de test, de proces data, het id van de gateway of decision model dat uitgevoerd moet worden en het verwachte resultaat (geactiveerde route of resultaat).</p>
+<div class="tabs-container"><div class="tabs-list-container"><div class="tabs-scroll-container"><ul><li><a href="#gewenst-resultaat-yaml" aria-expanded="true">yaml</a></li><li><a href="#gewenst-resultaat-feature" aria-expanded="false">feature</a></li><li><a href="#gewenst-resultaat-test-execution" aria-expanded="false">test-execution</a></li></ul></div></div><div class="tabs-panels-container"><div id="gewenst-resultaat-yaml"><div data-fullscreen="false"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><pre><code class="language-yaml">scenarios:
+  - type: exclusive_gateway
+    state: 
+      AnswerCorrectProbability: 84
+    gateway: Gateway_UseBotAnswer
+    expected_flow: Flow_UseBotAnswerNo
+  - type: exclusive_gateway
+    state: 
+      AnswerCorrectProbability: 85
+    gateway: Gateway_UseBotAnswer
+    expected_flow: Flow_UseBotAnswerYes
+  - type: exclusive_gateway
+    state: 
+      AnswerCorrectProbability: 94
+    gateway: Gateway_ReviewBotAnswer
+    expected_flow: Flow_ReviewBotAnswerYes
+  - type: exclusive_gateway
+    state: 
+      AnswerCorrectProbability: 95
+    gateway: Gateway_ReviewBotAnswer
+    expected_flow: Flow_ReviewBotAnswerNo
+  - type: parallel_gateway
+    state: state_object    
+    gateway: id_of_gateway
+    expected_flows:
+      - id_of_flow
+      - id_of_flow
+  - type: dmn
+    state: state_object    
+    dmn: id_of_decision_model
+    expected_result: result_object</code></pre><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button><div class="figure-zoom"><button type="button" title="Zoom reset" data-figure-zoom="reset"><span class="label">↺</span></button><button type="button" title="Zoom in" data-figure-zoom="in"><span class="label">+</span></button><button type="button" title="Zoom uit" data-figure-zoom="out"><span class="label">−</span></button></div></footer></div></div><div id="gewenst-resultaat-feature" hidden="hidden"><details class="scenario"><summary><span class="status status-other">Exclusive gateway tests</span></summary><details class="scenario"><summary><span class="status status-other">Exclusive gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 84 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_UseBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_UseBotAnswerNo" must be activated</span></span></li></ul></details><details class="scenario"><summary><span class="status status-other">Exclusive gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 85 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_UseBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_UseBotAnswerYes" must be activated</span></span></li></ul></details><details class="scenario"><summary><span class="status status-other">Exclusive gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 94 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_ReviewBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_ReviewBotAnswerYes" must be activated</span></span></li></ul></details><details class="scenario"><summary><span class="status status-other">Exclusive gateway tests</span></summary><ul class="steps">             <li class="step given"><span class="status status-bg status-undefined"> <span class="keyword">Given</span><span> </span><span>process "blog/bizdevops/living-documentation/process.bpmn"</span></span></li><li class="step and"><span class="status status-bg status-undefined"> <span class="keyword">And</span><span> </span><span>process has state "{ AnswerCorrectProbability: 95 }"</span></span></li><li class="step when"><span class="status status-bg status-undefined"> <span class="keyword">When</span><span> </span><span>the gateway with id "Gateway_ReviewBotAnswer" is executed</span></span></li><li class="step then"><span class="status status-bg status-undefined"> <span class="keyword">Then</span><span> </span><span>the flow with id "Flow_ReviewBotAnswerNo" must be activated</span></span></li></ul></details></details></div><div id="gewenst-resultaat-test-execution" hidden="hidden"><div data-fullscreen="false"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><pre><code class="language-json">{
+    "Nodes": [],
+    "ExecutionTime": "2022-01-28T14:43:09.7313748Z",
+    "GenerationTime": "0001-01-01T00:00:00",
+    "PluginUserSpecFlowId": "669ff5dd-18ff-431a-8e2b-3d89a3d6e1ed",
+    "CLIUserSpecFlowId": null,
+    "ExecutionResults": [
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "blog/bizdevops/living-documentation/process.bpmn",
+                "{ AnswerCorrectProbability: 95 }",
+                "Gateway_ReviewBotAnswer",
+                "Flow_ReviewBotAnswerNo"
+            ],
+            "Status": "TestError",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.0072757",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        },
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "blog/bizdevops/living-documentation/process.bpmn",
+                "{ AnswerCorrectProbability: 94 }",
+                "Gateway_ReviewBotAnswer",
+                "Flow_ReviewBotAnswerYes"
+            ],
+            "Status": "TestError",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.0004279",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        },
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "blog/bizdevops/living-documentation/process.bpmn",
+                "{ AnswerCorrectProbability: 84 }",
+                "Gateway_UseBotAnswer",
+                "Flow_UseBotAnswerNo"
+            ],
+            "Status": "TestError",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.0003100",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        },
+        {
+            "ContextType": "Scenario",
+            "FeatureFolderPath": "Generated",
+            "FeatureTitle": "Process",
+            "ScenarioTitle": "Exclusive gateway tests",
+            "ScenarioArguments": [
+                "blog/bizdevops/living-documentation/process.bpmn",
+                "{ AnswerCorrectProbability: 85 }",
+                "Gateway_UseBotAnswer",
+                "Flow_UseBotAnswerYes"
+            ],
+            "Status": "TestError",
+            "StepResults": [
+                {
+                    "Duration": "00:00:00.0002934",
+                    "Status": "TestError",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                },
+                {
+                    "Duration": null,
+                    "Status": "Skipped",
+                    "Error": "Interface cannot be resolved: Common.BPMN.Abstractions.Tests.IBPMNTestBuilder (resolution path: Adapters.Zeebe.Tests.Steps.ProcessStepDefintions)",
+                    "Outputs": null
+                }
+            ],
+            "Outputs": null
+        }
+    ],
+    "StepReports": null
+}</code></pre><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button><div class="figure-zoom"><button type="button" title="Zoom reset" data-figure-zoom="reset"><span class="label">↺</span></button><button type="button" title="Zoom in" data-figure-zoom="in"><span class="label">+</span></button><button type="button" title="Zoom uit" data-figure-zoom="out"><span class="label">−</span></button></div></footer></div></div></div></div>
+<p>Ze voor een voorbeeld implementatie de volgende bestanden:</p>
+<ul>
+<li><a href="https://github.com/synionnl/website/blob/feature/bot/docs/blog/bizdevops/living-documentation/process.feature">https://github.com/synionnl/website/blob/feature/bot/docs/blog/bizdevops/living-documentation/process.feature</a></li>
+<li><a href="https://github.com/arjangeertsema/hexagonal-architecture/blob/main/Domain/Domain.UseCases.Tests/Steps/ProcessStepDefintions.cs">https://github.com/arjangeertsema/hexagonal-architecture/blob/main/Domain/Domain.UseCases.Tests/Steps/ProcessStepDefintions.cs</a></li>
+</ul>
+</div>
+</div><div class="header-container h2">
+    <div class="header"><h2 id="delevirables" tabindex="-1">Delevirables <a class="header-anchor" href="#delevirables">¶</a></h2></div>
+    <div class="container">
+<ul>
+<li>Test script</li>
+<li>Docker file</li>
+<li><a href="https://docs.github.com/en/actions/creating-actions/creating-a-docker-container-action">Github workflow action</a></li>
+</ul>
+</div>
+</div><div class="header-container h2">
+    <div class="header"><h2 id="class-diagram" tabindex="-1">Class diagram <a class="header-anchor" href="#class-diagram">¶</a></h2></div>
+    <div class="container">
+<div class="tabs-container"><div class="tabs-list-container"><div class="tabs-scroll-container"><ul><li><a href="#class-diagram-feature" aria-expanded="true">Feature</a></li><li><a href="#class-diagram-test" aria-expanded="false">Test</a></li></ul></div></div><div class="tabs-panels-container"><div id="class-diagram-feature"><div data-fullscreen="false"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><figure><img src="feature.puml.svg" alt="Feature"></figure><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button><div class="figure-zoom"><button type="button" title="Zoom reset" data-figure-zoom="reset"><span class="label">↺</span></button><button type="button" title="Zoom in" data-figure-zoom="in"><span class="label">+</span></button><button type="button" title="Zoom uit" data-figure-zoom="out"><span class="label">−</span></button></div></footer></div></div><div id="class-diagram-test" hidden="hidden"><div data-fullscreen="false"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><figure><img src="test.puml.svg" alt="Test"></figure><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button><div class="figure-zoom"><button type="button" title="Zoom reset" data-figure-zoom="reset"><span class="label">↺</span></button><button type="button" title="Zoom in" data-figure-zoom="in"><span class="label">+</span></button><button type="button" title="Zoom uit" data-figure-zoom="out"><span class="label">−</span></button></div></footer></div></div></div></div>
+</div>
+</div><div class="header-container h2">
+    <div class="header"><h2 id="pseudo-code" tabindex="-1">Pseudo code <a class="header-anchor" href="#pseudo-code">¶</a></h2></div>
+    <div class="container">
+<div class="tabs-container"><div class="tabs-list-container"><div class="tabs-scroll-container"><ul><li><a href="#pseudo-code-main" aria-expanded="true">main</a></li><li><a href="#pseudo-code-exclusivegatewaytest" aria-expanded="false">ExclusiveGatewayTest</a></li></ul></div></div><div class="tabs-panels-container"><div id="pseudo-code-main"><div data-fullscreen="false"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><pre><code class="language-java">var results = []
+var features &gt; *.bpmn.tests files
+
+foreach var feature in features
+  var test = testFactory.create(feature)    
+  results.add(test.execute())
+
+export(results) //Zodat het gebruikt kan worden in de living documentation pipeline].
+
+foreach var result in results
+  assert(result);</code></pre><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button><div class="figure-zoom"><button type="button" title="Zoom reset" data-figure-zoom="reset"><span class="label">↺</span></button><button type="button" title="Zoom in" data-figure-zoom="in"><span class="label">+</span></button><button type="button" title="Zoom uit" data-figure-zoom="out"><span class="label">−</span></button></div></footer></div></div><div id="pseudo-code-exclusivegatewaytest" hidden="hidden"><div data-fullscreen="false"><header><button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button></header><pre><code class="language-java">ExclusiveGatewayTest.Execute(GatewayScenario scenario) =&gt;
+  var gateway = bpmn.findGateway(scenario.gateway)
+
+  if(gateway == null)
+    return new FailTestResult(scenario, "Gateway not found")
+
+  var defaultFlow = gateway.flows
+    .singleOrDefault(flow =&gt; flow.id == gateway.defaultFlow)
+
+  var activatedFlow = gateway.flows
+    .where(flow =&gt; 
+      flow.id != gateway.defaultFlow &amp;&amp; 
+      expressionParser.parse(scenario.state, flow.expression) == true
+    )
+    .singleOrDefault()
+
+  if(activatedFlow?.id != scenario.expectedFlow and defaultFlow?.id != scenario.expectedFlow)
+    return new FailTestResult(scenario, "Expected flow is not activated")
+
+  return new PassTestResult(scenario)</code></pre><footer>   <button type="button" title="Maximize" data-toggle="fullscreen"><span class="label">Zoom</span></button><div class="figure-zoom"><button type="button" title="Zoom reset" data-figure-zoom="reset"><span class="label">↺</span></button><button type="button" title="Zoom in" data-figure-zoom="in"><span class="label">+</span></button><button type="button" title="Zoom uit" data-figure-zoom="out"><span class="label">−</span></button></div></footer></div></div></div></div>
+</div>
+</div></div></main><script src="../assets/iframe-resizer-dist/iframeResizer.min.js" charset="UTF-8"></script><script src="../assets/bpmn-js-dist/bpmn-navigated-viewer.production.min.js" charset="UTF-8"></script><script src="../assets/prismjs/components/prism-core.min.js" charset="UTF-8"></script><script src="../assets/prismjs/prism-autoloader.min.js" charset="UTF-8"></script><script src="../assets/prismjs/prism-line-numbers.min.js" charset="UTF-8"></script><script src="../assets/scripts/h3.js" charset="UTF-8"></script><script src="../assets/scripts/iframe.js" charset="UTF-8"></script><script src="../assets/scripts/fullscreen.js" charset="UTF-8"></script><script src="../assets/scripts/git.js" charset="UTF-8"></script><script src="../assets/scripts/menu.js" charset="UTF-8"></script><script src="../assets/scripts/scroll-spy.js" charset="UTF-8"></script><script src="../assets/scripts/tabs.js" charset="UTF-8"></script><script src="../assets/scripts/user-task.js" charset="UTF-8"></script></body></html>
