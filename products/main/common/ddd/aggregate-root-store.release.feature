@@ -1,6 +1,6 @@
 @Database
 @AutoWire
-Feature: DDD aggregate root store (3e94d933a27d7e7785de807a0f3a3750)
+Feature: DDD aggregate root store (3e94d933a27d7e7785de807a0f3a3750})
 
     Scenario: Can get an event sourced aggregate root
         Given events in database

@@ -1,5 +1,5 @@
 @Command
-Feature: CQRS commands (1c7429cb342c698476b8573287ae3cdd)
+Feature: CQRS commands (1c7429cb342c698476b8573287ae3cdd})
 
     Scenario: Can send command
         Given command handler is auto wired

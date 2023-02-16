@@ -1,5 +1,5 @@
 @Event
-Feature: CQRS events (9605a04d259e45619d2c557fc60fe3b1)
+Feature: CQRS events (9605a04d259e45619d2c557fc60fe3b1})
 
     Scenario: Can notify event
         Given event handler is auto wired

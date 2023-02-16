@@ -1,4 +1,4 @@
-Feature: IAM (6e7f40647928a2cde1fea212524f2f0c)
+Feature: IAM (6e7f40647928a2cde1fea212524f2f0c})
 
     Scenario: Principal context is working in async invocations
       Then principal context is working as expected

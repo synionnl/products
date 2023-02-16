@@ -1,4 +1,4 @@
-Feature: User task provider product (125aaadbccd9153ff247d226be459381)
+Feature: User task provider product (125aaadbccd9153ff247d226be459381})
 
     Scenario: May not review own answer
         Given a review anwser task
