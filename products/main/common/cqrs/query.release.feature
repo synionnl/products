@@ -1,5 +1,5 @@
 @Query
-Feature: CQRS queries (17d146c2f008949c10a94af513ea4b71})
+Feature: CQRS queries (17d146c2f008949c10a94af513ea4b71)
 
     Scenario: Can ask query
         Given query handler is auto wired
