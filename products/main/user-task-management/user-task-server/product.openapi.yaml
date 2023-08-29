@@ -151,7 +151,7 @@ paths:
           description: User is not authenticated
         "403":
           description: User is not authorized
-  "/api/my-user-tasks/{user_task_id}":
+  /api/my-user-tasks/{user_task_id}:
     parameters:
       - in: path
         name: user_task_id

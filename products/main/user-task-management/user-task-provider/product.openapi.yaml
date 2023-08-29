@@ -147,7 +147,7 @@ paths:
           description: User is not authenticated
         "403":
           description: User is not authorized
-  "/api/my-user-tasks/{user_task_id}":
+  /api/my-user-tasks/{user_task_id}:
     parameters:
       - in: path
         name: user_task_id
@@ -294,7 +294,7 @@ paths:
           description: User is not authorized for this user task
         "404":
           description: User task not found
-  "/api/my-user-tasks/{user_task_id}/claim":
+  /api/my-user-tasks/{user_task_id}/claim:
     parameters:
       - in: path
         name: user_task_id
@@ -424,7 +424,7 @@ paths:
                 required:
                   - status
                   - title
-  "/api/my-user-tasks/{user_task_id}/delay":
+  /api/my-user-tasks/{user_task_id}/delay:
     parameters:
       - in: path
         name: user_task_id
@@ -558,7 +558,7 @@ paths:
                 required:
                   - status
                   - title
-  "/api/my-user-tasks/{user_task_id}/delegate":
+  /api/my-user-tasks/{user_task_id}/delegate:
     parameters:
       - in: path
         name: user_task_id
@@ -696,7 +696,7 @@ paths:
                 required:
                   - status
                   - title
-  "/api/my-user-tasks/{user_task_id}/delegators":
+  /api/my-user-tasks/{user_task_id}/delegators:
     parameters:
       - in: path
         name: user_task_id
