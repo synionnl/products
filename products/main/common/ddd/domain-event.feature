@@ -1,6 +1,6 @@
 @Database
 @DomainEvent
-Feature: DDD domain events
+Feature: DDD domain events (a39ec768af5b99070a7448921a203537)
 
     Scenario: Publish domain events
         Given events in database
