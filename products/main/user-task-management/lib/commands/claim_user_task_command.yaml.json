@@ -1,0 +1,1 @@
+{"allOf":[{"$ref":"types/command.yaml"},{"title":"claim_user_task_command"}],"name":"Claim_user_task_command"}
