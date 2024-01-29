@@ -1,1 +1,0 @@
-{"allOf":[{"$ref":"types/command.yaml"},{"title":"delay_user_task_command","properties":{"delay_until":{"$ref":"../types/user_task_delayed_until.yaml"}},"required":["delay_until"]}],"name":"Delay_user_task_command"}

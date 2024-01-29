@@ -1,1 +1,0 @@
-{"allOf":[{"$ref":"types/command.yaml"},{"title":"delegate_user_task_command","properties":{"delegate_to":{"$ref":"../types/user_id.yaml"},"message":{"$ref":"../types/markdown_message.yaml"}},"required":["user_id","message"]}],"name":"Delegate_user_task_command"}
